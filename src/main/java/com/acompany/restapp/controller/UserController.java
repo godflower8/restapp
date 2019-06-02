@@ -4,6 +4,8 @@ import com.acompany.restapp.annotation.TokenRequired;
 import com.acompany.restapp.model.User;
 import com.acompany.restapp.service.UserService;
 import com.acompany.restapp.service.UserServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +14,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 public class UserController {
+
+    private static final Logger logger =
+            LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
@@ -24,7 +29,10 @@ public class UserController {
 
     @GetMapping("/{userid}")
     public User getUserByUserid(@PathVariable Integer userid) {
-        System.out.println(userid);
+        logger.debug("" + userid);
+
+        // int a = 3 / 0;
+
         return userService.getUserById(userid);
     }
 
