@@ -1,41 +1,17 @@
 package com.acompany.restapp.service;
 
-import com.acompany.restapp.dao.UserRepository;
 import com.acompany.restapp.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
-@Service
-public class UserService {
+public interface UserService {
+    List<User> getUsers();
 
-    @Autowired
-    private UserRepository userRepository;
+    User getUserById(Integer userid);
 
-    public Map<String, String> getMessage() {
-        return userRepository.getMessage();
-    }
+    User registUser(User user);
 
-    public List<User> getUsers() {
-        return userRepository.getAllUsers();
-    }
+    void modifyUser(Integer userid, User user);
 
-    public User getUserById(Integer userid) {
-        return userRepository.getUserByUserid(userid);
-    }
-
-    public User registUser(User user) {
-        return userRepository.insertUser(user);
-    }
-
-    public void modifyUser(Integer userid, User user) {
-        user.setUserid(userid);
-        userRepository.updateUser(user);
-    }
-
-    public void removeUser(Integer userid) {
-        userRepository.deleteUser(userid);
-    }
+    void removeUser(Integer userid);
 }
