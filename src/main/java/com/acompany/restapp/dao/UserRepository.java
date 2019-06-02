@@ -35,7 +35,6 @@ public class UserRepository {
     // 사용자 전체보기
     public List<User> getAllUsers() {
         System.out.println("사용자 전체보기::repository..");
-
         //return new ArrayList<>();
         return users;
     }

@@ -1,6 +1,8 @@
 package com.acompany.restapp.controller;
 
+import com.acompany.restapp.annotation.TokenRequired;
 import com.acompany.restapp.model.User;
+import com.acompany.restapp.service.UserService;
 import com.acompany.restapp.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +14,9 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
 
+    @TokenRequired
     @GetMapping("")
     public List<User> getAllUsers() {
         return userService.getUsers();
