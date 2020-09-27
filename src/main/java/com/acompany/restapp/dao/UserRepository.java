@@ -21,6 +21,7 @@ public class UserRepository {
         users.add(new User(400, "park"));
         users.add(new User(500, "kwon"));
         users.add(new User(600, "hwang"));
+        users.add(new User(700, "back"));
 
         System.out.println(users);
     }
